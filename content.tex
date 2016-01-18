@@ -32,6 +32,7 @@
     \part Determine the adjacency list.
     \part For each of the vertices, determine the degree.
   \end{parts}
+  
   \begin{solution}
     \begin{parts}
     	\part $ \{ a, b, c, d, z \} $.
@@ -45,10 +46,12 @@
 	Professor McBrain and his wife April give a party at which there are four other married couples.
 	Some pairs of people shake hands when they meet, but naturally no couple shake hands with each other.
 	At the end of the party the Professor asks everyone else how many people they have shaken hands with, and he receives nine different answers.~\cite{biggs02}
+	
 	\begin{parts}
 		\part Draw a graph representing the handshakes exchanged at the party.
 		\part How many people shook hands with April?
 	\end{parts}
+	
 	\begin{solution}
 		\begin{center}
   	 \begin{adjustbox}{max width=0.6\textwidth}
@@ -93,42 +96,164 @@
 		\end{center}
 
 	
-	We construct a graph whose vertices are the people at the party, and there is an edge (x, y) whenever x and y shook hands.
-	Since there are nine people apart from Professor McBrain, and the maximum number of handshakes in which any one person can be involved is eight, it follows that the nine different answers received by the Professor must be 0, 1, 2, 3, 4, 5, 6, 7, 8.
-	We denote the vertices by these numbers and use M for McBrain himself.
-	So we have a pictorial representation.
-	Now, vertex 8 is joined to all the other vertices except one, which must therefore represent the spouse of 8.
-	This vertex must be 0, since it is certainly not joined to 8 (or any other vertex, for that matter).
-	Thus 8 and 0 are a married couple, and 8 is joined to 1, 2, ..., 7 and M.
-	In particular 1 is joined to 8 and this is the only edge from 1.
-	Hence vertex 7 is not joined to 0 and 1 (only), and the spouse of 7 must be 1, since 0 is married to 8.
-	Continuing in the same way, we see that 6 and 2, and 5 and 3 are married couples.
-	It follows that M and 4 are married, so vertex 4 represents April, who shook hands with four people.
+  	We construct a graph whose vertices are the people at the party, and there is an edge (x, y) whenever x and y shook hands.
+  	Since there are nine people apart from Professor McBrain, and the maximum number of handshakes in which any one person can be involved is eight, it follows that the nine different answers received by the Professor must be 0, 1, 2, 3, 4, 5, 6, 7, 8.
+  	We denote the vertices by these numbers and use M for McBrain himself.
+  	So we have a pictorial representation.
+  	Now, vertex 8 is joined to all the other vertices except one, which must therefore represent the spouse of 8.
+  	This vertex must be 0, since it is certainly not joined to 8 (or any other vertex, for that matter).
+  	Thus 8 and 0 are a married couple, and 8 is joined to 1, 2, ..., 7 and M.
+  	In particular 1 is joined to 8 and this is the only edge from 1.
+  	Hence vertex 7 is not joined to 0 and 1 (only), and the spouse of 7 must be 1, since 0 is married to 8.
+  	Continuing in the same way, we see that 6 and 2, and 5 and 3 are married couples.
+  	It follows that M and 4 are married, so vertex 4 represents April, who shook hands with four people.
   \end{solution}
 
 \question
-Three houses A, B, C each has to be connected to the gas, water and electricity supplies: G, W, E.
-Write own the adjacency list for the graph which represents this problem, and construct a pictorial representation of it.
-Can you find a picture in which the lines representing the edges do not cross?~\cite{biggs02}
+  Three houses A, B, C each has to be connected to the gas, water and electricity supplies: G, W, E.
+  Write own the adjacency list for the graph which represents this problem, and construct a pictorial representation of it.
+  Can you find a picture in which the lines representing the edges do not cross?~\cite{biggs02}
+	\begin{solution}
+		
+		Adjacency list:
+		\begin{center}
+  		\begin{tabular}{r|lll}
+  			A & G & E & W \\
+  			B & G & E & W \\
+  			C & G & E & W \\
+  			G & A & B & C \\
+  			E & A & B & C \\
+  			W & A & B & C
+  		\end{tabular}
+		\end{center}
+		
+		Pictorial representation:
+		\begin{center}
+  	 \begin{adjustbox}{max width=0.6\textwidth}
+	  	\begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+          \node (A) at (0,4) {$A$};
+          \node (B) at (0,2) {$B$};
+          \node (C) at (0,0) {$C$};
+          \node (G) at (6,4) {$G$};
+          \node (W) at (6,2) {$W$};
+          \node (E) at (6,0) {$E$};
+          
+        \end{scope}
+        \begin{scope}[every edge/.style={draw=black,thick}]
+          \path (A) edge (G);
+          \path (B) edge (W);
+          \path (C) edge (E);
+          \path (A) edge (W);
+          \path (B) edge (E);
+          \path (C) edge (G);
+          \path (A) edge (E);
+          \path (B) edge (G);
+          \path (C) edge (W);
+        \end{scope}
+  		\end{tikzpicture}
+			\end{adjustbox}
+		\end{center}
+		It's impossible to draw the graph without some edges crossing.
+		This will be proven in later lectures.
+	\end{solution}
+	
+
 
 \question
-The pathways in a formal garden are to be laid out in the form of a wheel graph $W_n$ whose vertex set is $V = \{0,1,2,\ldots,n\}$ and whose edges are:
-\begin{align*}
-	&\{0,1\}, \{0,2\}, \ldots, \{0,n\}, \\
-	&\{1,2\}, \{2,3\}, \ldots, \{n-1,n\}, \{n,1\}
-\end{align*}
-Describe a route around the pathways which starts and ends at vertex 0 and visits every vertex once only.~\cite{biggs02}
+  The pathways in a formal garden are to be laid out in the form of a wheel graph $W_n$ whose vertex set is $V = \{0,1,2,\ldots,n\}$ and whose edges are:
+  \begin{align*}
+  	&\{0,1\}, \{0,2\}, \ldots, \{0,n\}, \\
+  	&\{1,2\}, \{2,3\}, \ldots, \{n-1,n\}, \{n,1\}
+  \end{align*}
+  Describe a route around the pathways which starts and ends at vertex 0 and visits every vertex once only.~\cite{biggs02}
+
+	\begin{solution}
+	
+		Say, for n = 6, we could draw the graph this way:
+		\begin{center}
+  	 \begin{adjustbox}{max width=0.6\textwidth}
+	  	\begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+          \node (0) at (0,0) {$0$};
+          \node (1) at (2,0) {$1$};
+          \node (2) at (1,1.732) {$2$};
+          \node (3) at (-1,1.732) {$3$};
+          \node (4) at (-2,0) {$4$};
+          \node (5) at (-1,-1.732) {$5$};
+          \node (6) at (1,-1.732) {$6$};
+
+          
+        \end{scope}
+        \begin{scope}[every edge/.style={draw=black,thick}]
+          \path (0) edge [red] (1);
+          \path (0) edge (2);
+          \path (0) edge (3);
+          \path (0) edge (4);
+          \path (0) edge (5);
+          \path (0) edge [red] (6);
+          \path (1) edge [red] (2);
+          \path (2) edge [red] (3);
+          \path (3) edge [red] (4);
+          \path (4) edge [red] (5);
+          \path (5) edge [red] (6);
+          \path (6) edge (1);
+        \end{scope}
+  		\end{tikzpicture}
+			\end{adjustbox}
+		\end{center}
+		
+		One such path is given in red.
+	\end{solution}
 
 \question
-For each positive integer $n$ we define the complete graph $K_n$ to be the graph with n vertices in which each pair of vertices is adjacent.~\cite{biggs02}
-\begin{parts}
-	\part How many edges has $K_n$?
-	\part For which values of $n$ can you find a pictorial representation of $K_n$ with the property that the lines representing the edges do not cross?
-\end{parts}
+  For each positive integer $n$ we define the complete graph $K_n$ to be the graph with n vertices in which each pair of vertices is adjacent.~\cite{biggs02}
+  \begin{parts}
+  	\part How many edges has $K_n$?
+  	\part For which values of $n$ can you find a pictorial representation of $K_n$ with the property that the lines representing the edges do not cross?
+  \end{parts}
+
+	\begin{solution}
+		Every edge is connected to every other.
+		Every edge looks like $\{a,b\}$ where $a$ and $b$ are vertices.
+		There are $n$ choices for $a$, and then $n-1$ for $b$.
+		So the total number of edges seems to be $n(n-1)$.
+		However, we've now counted the edge $\{a,b\}$ twice -- once as $\{a,b\}$ and once as $\{b,a\}$.
+		So the actual number of edges in $K_n$ is:
+		$$ \frac{n(n-1)}{2}$$
+	\end{solution}
 
 \question
-A 3-cycle in a graph is a set of three mutually adjacent vertices.
-Construct a graph with five vertices and six edges which contains no 3-cycles.~\cite{biggs02}
+  A 3-cycle in a graph is a set of three mutually adjacent vertices.
+  Construct a graph with five vertices and six edges which contains no 3-cycles.~\cite{biggs02}
+
+	\begin{solution}
+		There are lots of possibilities. Here's one:
+		\begin{center}
+  	 \begin{adjustbox}{max width=0.6\textwidth}
+	  	\begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+          \node (1) at (0,4) {$0$};
+          \node (2) at (0,2) {$1$};
+          \node (3) at (0,0) {$2$};
+          \node (4) at (4,3) {$3$};
+          \node (5) at (4,1) {$4$};
+          
+        \end{scope}
+        \begin{scope}[every edge/.style={draw=black,thick}]
+          \path (1) edge (4);
+          \path (2) edge (4);
+          \path (3) edge (4);
+          \path (1) edge (5);
+          \path (2) edge (5);
+          \path (3) edge (5);
+        \end{scope}
+  		\end{tikzpicture}
+			\end{adjustbox}
+		\end{center}
+
+	\end{solution}
+
 
 \end{questions}
 
