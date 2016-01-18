@@ -4,8 +4,11 @@
 \begin{questions}
 
 \question
-	Consider the following graph.
-  \begin{tikzpicture}[baseline=(current bounding box.north)]
+	Consider the following graph.~\cite{biggs02}
+  
+  \begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[]
     \begin{scope}[every node/.style={circle,thick,draw}]
       \node (a) at (2,4) {$a$};
       \node (b) at (4,2) {$b$};
@@ -21,6 +24,8 @@
       \path (d) edge (z);
     \end{scope}
   \end{tikzpicture}
+  \end{figure}
+  
   \begin{parts}
     \part Determine the vertex set.
     \part Determine the edge set.
@@ -39,7 +44,7 @@
 \question
 	Professor McBrain and his wife April give a party at which there are four other married couples.
 	Some pairs of people shake hands when they meet, but naturally no couple shake hands with each other.
-	At the end of the party the Professor asks everyone else how many people they have shaken hands with, and he receives nine different answers.
+	At the end of the party the Professor asks everyone else how many people they have shaken hands with, and he receives nine different answers.~\cite{biggs02}
 	\begin{parts}
 		\part Draw a graph representing the handshakes exchanged at the party.
 		\part How many people shook hands with April?
@@ -101,4 +106,39 @@
 	It follows that M and 4 are married, so vertex 4 represents April, who shook hands with four people.
   \end{solution}
 
+\question
+Three houses A, B, C each has to be connected to the gas, water and electricity supplies: G, W, E.
+Write own the adjacency list for the graph which represents this problem, and construct a pictorial representation of it.
+Can you find a picture in which the lines representing the edges do not cross?~\cite{biggs02}
+
+\question
+The pathways in a formal garden are to be laid out in the form of a wheel graph $W_n$ whose vertex set is $V = \{0,1,2,\ldots,n\}$ and whose edges are:
+\begin{align*}
+	&\{0,1\}, \{0,2\}, \ldots, \{0,n\}, \\
+	&\{1,2\}, \{2,3\}, \ldots, \{n-1,n\}, \{n,1\}
+\end{align*}
+Describe a route around the pathways which starts and ends at vertex 0 and visits every vertex once only.~\cite{biggs02}
+
+\question
+For each positive integer $n$ we define the complete graph $K_n$ to be the graph with n vertices in which each pair of vertices is adjacent.~\cite{biggs02}
+\begin{parts}
+	\part How many edges has $K_n$?
+	\part For which values of $n$ can you find a pictorial representation of $K_n$ with the property that the lines representing the edges do not cross?
+\end{parts}
+
+\question
+A 3-cycle in a graph is a set of three mutually adjacent vertices.
+Construct a graph with five vertices and six edges which contains no 3-cycles.~\cite{biggs02}
+
 \end{questions}
+
+\begin{thebibliography}{9}
+
+\bibitem{biggs02}
+  Norman Biggs,
+  \emph{Discrete Mathematics},
+  Oxford University Press,
+  2nd edition,
+  2002.
+
+\end{thebibliography}
