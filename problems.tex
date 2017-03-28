@@ -251,13 +251,34 @@
   \end{parts}
 
 	\begin{solution}
-		Every edge is connected to every other.
-		Every edge looks like $\{a,b\}$ where $a$ and $b$ are vertices.
-		There are $n$ choices for $a$, and then $n-1$ for $b$.
-		So the total number of edges seems to be $n(n-1)$.
-		However, we've now counted the edge $\{a,b\}$ twice -- once as $\{a,b\}$ and once as $\{b,a\}$.
-		So the actual number of edges in $K_n$ is:
-		$$ \frac{n(n-1)}{2}$$
+    \begin{parts}
+		  \part
+        There are two formulas we can derive here. \\
+        First:
+        \begin{itemize}
+          \item Every edge is connected to every other.
+		      \item Every edge looks like $\{a,b\}$ where $a$ and $b$ are vertices.
+		      \item There are $n$ choices for $a$, and then $n-1$ for $b$.
+		      \item So the total number of edges seems to be $n(n-1)$.
+          \item However, we've now counted the edge $\{a,b\}$ twice -- once as $\{a,b\}$ and once as $\{b,a\}$.
+          \item So the actual number of edges in $K_n$ is:
+            $$ \frac{n(n-1)}{2} $$
+        \end{itemize}
+        Second:
+        \begin{itemize}
+          \item Move through the vertices one by one.
+          \item The first vertex is connected to $n-1$ others.
+          \item The second vertex is connected to $n-2$ others, excluding the first vertex.
+          \item The third vertex is connected to $n-3$ others, excluding the first and second.
+          \item And so on.
+          \item So the actual number of edges in $K_n$ is:
+            $$ (n-1) + (n-2) + \ldots + 2 + 1 $$
+        \end{itemize}
+      \part
+        You can easily draw $K_1$, $K_2$, $K_3$ and $K_4$ without edges crossing.
+        However $K_5$ cannot be drawn without edges crossing and $K_5$ is a contained in $K_n$ for all $n > 5$.
+        So the answer is: for $n \in \{1,2,3,4\}$.
+    \end{parts}
 	\end{solution}
 
 \question
